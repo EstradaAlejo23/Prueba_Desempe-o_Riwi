@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClaseReq {
+    private Long id;
     @NotBlank(message = "El nombre es requerido")
     @Size(
             min = 1,

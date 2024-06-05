@@ -1,4 +1,4 @@
-package com.riwi.Simulacro_Spring_Boot.infrastructure.abastract_services;
+package com.riwi.PruebaDesempenoRiwi.infrastructure.abastract_services;
 
 import org.springframework.data.domain.Page;
 

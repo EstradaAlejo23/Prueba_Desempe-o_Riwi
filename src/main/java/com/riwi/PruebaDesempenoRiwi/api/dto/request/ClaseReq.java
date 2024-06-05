@@ -2,6 +2,7 @@ package com.riwi.PruebaDesempenoRiwi.api.dto.request;
 
 import com.riwi.PruebaDesempenoRiwi.api.dto.response.LessonResp;
 import com.riwi.PruebaDesempenoRiwi.api.dto.response.StudentResp;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,6 @@ public class ClaseReq {
     @NotNull(message = "La fecha y hora de la cita es requeridas")
     private LocalDateTime createAt;
     @NotNull(message = "El estado es requerido")
-    private Boolean active;
+    private Status active;
 
 }

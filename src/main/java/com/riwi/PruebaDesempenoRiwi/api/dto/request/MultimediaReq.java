@@ -1,5 +1,6 @@
 package com.riwi.PruebaDesempenoRiwi.api.dto.request;
 
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import com.riwi.PruebaDesempenoRiwi.util.enums.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,5 @@ import java.time.LocalDateTime;
 public class MultimediaReq {
     private String url;
     private Type type;
-    private LocalDateTime createdAt;
-    private Boolean active;
+    private Status active;
 }

@@ -1,6 +1,7 @@
 package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Lesson;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import com.riwi.PruebaDesempenoRiwi.util.enums.Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,6 @@ public class MultimediaResp {
     private String url;
     private Type type;
     private LocalDateTime createdAt;
-    private Boolean active;
+    private Status active;
     private LessonResp lessons;
 }

@@ -1,5 +1,6 @@
 package com.riwi.PruebaDesempenoRiwi.domain.entities;
 
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +25,7 @@ public class Student {
     @Column(nullable = false)
     private LocalDateTime createdAt;
     @Column(nullable = false)
-    private Boolean active;
+    private Status active;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

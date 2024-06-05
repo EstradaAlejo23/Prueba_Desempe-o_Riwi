@@ -5,4 +5,6 @@ import com.riwi.PruebaDesempenoRiwi.api.dto.response.StudentResp;
 
 public interface IStudentService extends CrudGeneral<StudentReq,StudentResp,Long>{
     public StudentResp getById(Long id);
+
+    public StudentResp disable(Long id);
 }

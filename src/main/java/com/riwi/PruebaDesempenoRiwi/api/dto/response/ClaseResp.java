@@ -2,6 +2,7 @@ package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Lesson;
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Student;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,5 @@ public class ClaseResp {
     private String name;
     private String description;
     private LocalDateTime createAt;
-    private Boolean active;
-    private StudentResp students;
-    private LessonResp lessons;
+    private Status active;
 }

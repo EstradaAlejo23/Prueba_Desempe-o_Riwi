@@ -1,5 +1,6 @@
 package com.riwi.PruebaDesempenoRiwi.domain.entities;
 
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import com.riwi.PruebaDesempenoRiwi.util.enums.Type;
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,7 +26,7 @@ public class Multimedia {
     @Column(nullable = false)
     private LocalDateTime createdAt;
     @Column(nullable = false)
-    private Boolean active;
+    private Status active;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

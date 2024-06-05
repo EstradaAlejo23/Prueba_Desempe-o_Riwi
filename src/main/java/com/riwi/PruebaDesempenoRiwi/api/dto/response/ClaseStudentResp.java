@@ -1,4 +1,4 @@
-package com.riwi.PruebaDesempenoRiwi.api.dto.request;
+package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import lombok.AllArgsConstructor;
@@ -12,9 +12,11 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentReq {
+public class ClaseStudentResp {
+    private Long id;
     private String name;
-    private String email;
+    private String description;
+    private LocalDateTime createAt;
     private Status active;
-    private Long clase;
+    private StudentResp students;
 }

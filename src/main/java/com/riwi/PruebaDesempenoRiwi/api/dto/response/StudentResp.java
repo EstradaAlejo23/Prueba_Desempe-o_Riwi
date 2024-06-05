@@ -1,6 +1,7 @@
 package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Clase;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -21,6 +22,6 @@ public class StudentResp {
     private String name;
     private String email;
     private LocalDateTime createdAt;
-    private Boolean active;
+    private Status active;
     private ClaseResp clase;
 }

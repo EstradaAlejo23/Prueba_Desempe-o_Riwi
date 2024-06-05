@@ -1,5 +1,7 @@
 package com.riwi.PruebaDesempenoRiwi.api.dto.request;
 
+import com.riwi.PruebaDesempenoRiwi.domain.entities.Multimedia;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
 import jakarta.validation.constraints.*;
@@ -9,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -26,6 +29,8 @@ public class LessonReq {
     @FutureOrPresent(message = "La fecha y hora debe ser futura")
     @NotNull(message = "La fecha y hora de la cita es requeridas")
     private LocalDateTime createAt;
+    private Long classId;
     @NotNull( message = "El estado es requerido")
-    private Boolean active;
+    private Status active;
+    private List<MultimediaReq> multimedia;
 }

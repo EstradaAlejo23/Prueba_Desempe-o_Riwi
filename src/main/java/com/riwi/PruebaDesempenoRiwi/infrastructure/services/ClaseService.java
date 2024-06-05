@@ -2,14 +2,22 @@ package com.riwi.PruebaDesempenoRiwi.infrastructure.services;
 
 import com.riwi.PruebaDesempenoRiwi.api.dto.request.ClaseReq;
 import com.riwi.PruebaDesempenoRiwi.api.dto.response.ClaseResp;
+import com.riwi.PruebaDesempenoRiwi.api.dto.response.ClaseStudentResp;
+import com.riwi.PruebaDesempenoRiwi.api.dto.response.LessonResp;
+import com.riwi.PruebaDesempenoRiwi.api.dto.response.StudentResp;
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Clase;
+import com.riwi.PruebaDesempenoRiwi.domain.entities.Student;
 import com.riwi.PruebaDesempenoRiwi.domain.repository.ClaseRepository;
 import com.riwi.PruebaDesempenoRiwi.infrastructure.abastract_services.IClaseService;
+import com.riwi.PruebaDesempenoRiwi.util.exceptions.BadRequestException;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
@@ -19,7 +27,6 @@ public class ClaseService implements IClaseService {
 
     @Override
     public void delete(Long id) {
-        this.objClassRepository.delete(this.find(id));
     }
 
     @Override
@@ -29,12 +36,10 @@ public class ClaseService implements IClaseService {
     }
 
     @Override
-    public ClaseResp update(Long id, ClaseReq request) {
-        Clase objCLase = this.find(id);
-        Clase objClaseUpdate = this.EntityToRequest(request);
-        objClaseUpdate.setId(objCLase.getId());
-        return this.entityToResponse(this.objClassRepository.save(objClaseUpdate));
+    public ClaseResp update(Long aLong, ClaseReq request) {
+        return null;
     }
+
 
     @Override
     public Page<ClaseResp> getAll(int page, int size) {
@@ -46,12 +51,12 @@ public class ClaseService implements IClaseService {
     }
 
     @Override
-    public ClaseResp getById(Long id) {
-        return  this.entityToResponse(this.find(id));
+    public ClaseStudentResp getById(Long id) {
+        return  this.entityToResponseStudent(find(id));
     }
 
     private Clase find(Long id){
-        return this.objClassRepository.findById(id).orElseThrow();
+        return this.objClassRepository.findById(id).orElseThrow(()-> new BadRequestException("No hay Clases con el id suministrado"));
     }
 
     private Clase EntityToRequest(ClaseReq request){
@@ -59,7 +64,7 @@ public class ClaseService implements IClaseService {
                 .id(request.getId())
                 .name(request.getName())
                 .description(request.getDescription())
-                .createAt(request.getCreateAt())
+                .createAt(LocalDateTime.now())
                 .active(request.getActive())
                 .build();
     }
@@ -73,6 +78,22 @@ public class ClaseService implements IClaseService {
                 .active(entity.getActive())
                 .build();
     }
+
+    private ClaseStudentResp entityToResponseStudent (Clase entity){
+
+        StudentResp student = new StudentResp();
+        BeanUtils.copyProperties(entity, student);
+
+        return ClaseStudentResp.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .description(entity.getDescription())
+                .createAt(entity.getCreateAt())
+                .active(entity.getActive())
+                .students(student)
+                .build();
+    }
+
 
 
     public ClaseResp getByName(String name) {

@@ -2,6 +2,7 @@ package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Clase;
 import com.riwi.PruebaDesempenoRiwi.domain.entities.Multimedia;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,7 +18,7 @@ public class LessonResp {
     private String title;
     private String content;
     private LocalDateTime createAt;
-    private Boolean active;
+    private Status active;
+    List<MultimediaBasicResp> multimedia;
     private ClaseResp clase;
-    private MultimediaResp multimedia;
 }

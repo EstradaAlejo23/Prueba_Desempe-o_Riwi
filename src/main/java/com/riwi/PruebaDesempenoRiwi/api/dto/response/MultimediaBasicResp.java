@@ -1,6 +1,7 @@
-package com.riwi.PruebaDesempenoRiwi.api.dto.request;
+package com.riwi.PruebaDesempenoRiwi.api.dto.response;
 
 import com.riwi.PruebaDesempenoRiwi.util.enums.Status;
+import com.riwi.PruebaDesempenoRiwi.util.enums.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +13,10 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentReq {
-    private String name;
-    private String email;
+public class MultimediaBasicResp{
+    private Long id;
+    private String url;
+    private Type type;
+    private LocalDateTime createdAt;
     private Status active;
-    private Long clase;
 }
